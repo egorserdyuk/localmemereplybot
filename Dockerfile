@@ -12,9 +12,7 @@ WORKDIR /app
 COPY . /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install poetry
-
-RUN poetry install
+RUN python -m pip install .
 
 ENV TELEGRAM_TOKEN=token
 
