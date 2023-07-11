@@ -2,3 +2,5 @@
 ./.github/*
 
 ./image.sh
+./poetry.lock
+./pyproject.toml
