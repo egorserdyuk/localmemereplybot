@@ -12,7 +12,11 @@ WORKDIR /app
 COPY . /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install aiogram[speedups]
+RUN pip install poetry
+
+RUN poetry shell
+
+RUN poetry install
 
 ENV TELEGRAM_TOKEN=token
 

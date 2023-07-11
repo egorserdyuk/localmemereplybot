@@ -20,7 +20,7 @@ async def handle_text(message: types.Message):
     - None
     """
     if message.chat.type in (types.ChatType.GROUP, types.ChatType.SUPERGROUP) and "локальный" in message.text.lower():
-        await message.reply_document(document=open("image.webp", "rb"))
+        await message.reply_sticker(message.from_user.id, sticker="CAACAgIAAxkBAAEJp8lkrOJiRwSQlqO0CFz-JfJ9o2ybkwAC3i0AArWQQUjCYkXbm5hxfi8E")
 
 
 if __name__ == "__main__":
