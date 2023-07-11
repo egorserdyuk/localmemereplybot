@@ -14,8 +14,6 @@ COPY . /app
 # Install any needed packages specified in requirements.txt
 RUN pip install poetry
 
-RUN poetry shell
-
 RUN poetry install
 
 ENV TELEGRAM_TOKEN=token
