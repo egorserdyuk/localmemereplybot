@@ -14,7 +14,7 @@ COPY . /app
 # Install any needed packages specified in requirements.txt
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
-RUN poetry config virtualenvs.create false && poetry install $(test "1.5.1" == production && echo "--no-dev") --no-interaction --no-ansi
+RUN poetry config virtualenvs.create false && poetry install --no-dev --no-interaction --no-ansi
 
 ENV TELEGRAM_TOKEN=token
 
