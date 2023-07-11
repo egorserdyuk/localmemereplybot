@@ -3,7 +3,7 @@ FROM python:3.10-alpine
 
 RUN apk update && apk add build-base
 
-RUN apk add cmake make g++
+RUN apk add cmake make g++ curl
 
 # Set the working directory to /app
 WORKDIR /app
@@ -12,7 +12,9 @@ WORKDIR /app
 COPY . /app
 
 # Install any needed packages specified in requirements.txt
-RUN python -m pip install .
+RUN curl -sSL https://install.python-poetry.org | python3 -
+
+RUN poetry config virtualenvs.create false && poetry install $(test "1.5.1" == production && echo "--no-dev") --no-interaction --no-ansi
 
 ENV TELEGRAM_TOKEN=token
 
